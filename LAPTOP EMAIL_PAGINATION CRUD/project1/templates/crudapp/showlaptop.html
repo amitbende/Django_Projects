@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    <title>SHOW LAPTOP DATA</title>
+{% endblock %}    
+
+{% block content %}
+{% load static %}
+
+<table class="table table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">LAPTOP ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">MODEL</th>
+        <th scope="col">BRAND</th>
+        <th scope="col">RAM</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">DATE</th>
+        <th scope="col">PHONE NUMBER</th>
+        <th scope="col">SELLER</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in obj %}
+      <tr>
+        <td>{{i.laptop_id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.model}}</td>
+        <td>{{i.brand}}</td>
+        <td>{{i.ram}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.phone_number}}</td>
+        <td>{{i.seller}}</td>
+        <td>{{i.address}}</td>
+        <td><button class="btn btn-warning"><a href="{% url 'update_url' i.laptop_id %}">UPDATE</a></button></td>
+        <td><button class="btn btn-danger"><a href="{% url 'delete_url' i.laptop_id %}">DELETE</a></button></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <center>
+    <div> 
+      {% if obj.has_previous %}
+        <a href="{% url 'showlaptop_url' obj.previous_page_number %}"><button class="btn btn-success">PREVIOUS</button></a>
+      {% endif %}
+      
+      <span lass='mx-4'>
+          page{{obj.number}} of {{obj.paginator.num_pages}}
+      </span>
+  
+      {% if obj.has_next %}
+        <a href="{% url 'showlaptop_url' obj.next_page_number %}"><button class="btn btn-warning">NEXT</button></a>
+      {% endif %}
+    </div>
+  </center>  
+{% endblock %}
+
+

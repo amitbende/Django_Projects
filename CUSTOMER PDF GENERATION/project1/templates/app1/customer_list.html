@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>CUSTOMER DATA</title>
+{% endblock %}
+
+{% block content %}
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">CUSTOMER ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">PHONE NUMBER</th>
+        <th scope="col">MEDICINE</th>
+        <th scope="col">BILL</th>
+        <th scope="col">DATE</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in object_list %}
+      <tr>
+        <td>{{i.cid}}</td>
+        <td>{{i.cname}}</td>
+        <td>{{i.phone_number}}</td>
+        <td>{{i.medicine}}</td>
+        <td>{{i.cbill}}</td>
+        <td>{{i.date}}</td>
+        <td><button class="btn btn-warning"><a href="{% url 'update_url' i.id %}">UPDATE</a></button></td>
+        <td><button class="btn btn-danger"><a href="{% url 'delete_url' i.id %}">DELETE</a></button></td>
+        <td><button class="btn btn-secondary btn-lg"><a href="{% url 'pdf_file' i.id %}">GET PDF</a></button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

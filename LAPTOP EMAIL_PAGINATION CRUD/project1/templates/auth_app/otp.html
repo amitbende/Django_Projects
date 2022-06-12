@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} 
+<title>OTP FORM</title>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="POST">
+        {% csrf_token %}
+        <h1 align="center">Hello, world!</h1>
+        <lable><b>ENTER OTP:</b></lable>
+        <input type="password" name="otp" class="form-control" placeholder="Enter Your Otp">
+        <br><br>
+        <input type="submit" value="SUBMIT" class="btn btn-success btn-lg">
+    </form>
+</div>
+{% endblock %}

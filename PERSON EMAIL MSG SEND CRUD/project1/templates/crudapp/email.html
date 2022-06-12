@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} 
+<title>SEND Email</title>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="POST">
+        {% csrf_token %}
+        <h1 align="center">Hello, world!</h1>
+        <lable><b>Email Address:</b></lable>
+        <input type="email" name="email" class="form-control" placeholder="Enter Email Address">
+        <br><br>
+        <lable><b>Message:</b></lable>
+        <textarea class="form-control" name="message"></textarea>
+        <br><br>
+        <input type="submit" value="SEND EMAIL" class="btn btn-success btn-lg">
+    </form>
+</div>
+{% endblock %}

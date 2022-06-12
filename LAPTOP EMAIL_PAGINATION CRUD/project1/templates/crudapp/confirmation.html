@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title> CONFIRMATION FORMS </title>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        <p> Do You Want To DELETE<span style="color:red;">{{obj.laptop_id}}, {{obj.name}}</span> </p>
+        <input type="submit" value="YES" class="btn btn-success">
+        <button class="btn btn-warning"><a href="{% url 'showlaptop_url' %}">NO</a></button> 
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STUDENT FORM</title>
+</head>
+<body>
+<h1 style="color:green;">This is Student form For Form class Task !!! </h1>
+    <form  method="post">
+        {% csrf_token %}
+        <table border="3">
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="REGISTER">
+    </form>
+
+</body>
+</html>

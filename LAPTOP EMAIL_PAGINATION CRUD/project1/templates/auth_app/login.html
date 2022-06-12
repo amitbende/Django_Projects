@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>LOGIN FORM</title>
+{% endblock %}
+
+{% block content %}
+<div class="container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        <label for="un"> <b>ENTER USERNAME:</b></label>
+        <input id="un" type="text" name="u" class="form-control" autocomplete="off" placeholder="Enter Username">
+        <br><br>
+        <label for="pw"><b>PASSWORD:</b></label>
+        <input id="pw" type="password" name="p" class="form-control" autocomplete="off" placeholder="Enter Password">
+        <br><br>
+        <label for="pw"><b>EMAIL:</b></label>
+        <input id="em" type="text" name="e" class="form-control" autocomplete="off" placeholder="Enter Email Address">
+        <br><br>
+        <input type="submit" value="LOGIN" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}

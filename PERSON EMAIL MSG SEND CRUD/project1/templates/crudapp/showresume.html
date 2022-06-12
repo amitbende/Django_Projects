@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>SHOW RESUME</title>
+{% endblock %}
+
+{% block content %}
+<body>
+    <table class="table table-striped table-dark">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">STUDENT ID</th> 
+              <th scope="col">FIRST NAME</th>
+              <th scope="col"> MIDDLE NAME</th>
+              <th scope="col">LAST NAME</th>
+              <th scope="col">MOTHER NAME</th>
+              <th scope="col">DATE OF BIRTH</th>
+              <th scope="col">PLACE OF BIRTH</th>
+              <th scope="col">AGE</th>
+              <th scope="col">GENDER</th>
+              <th scope="col">PHONE NUMBER</th>
+              <th scope="col">ADDRESS</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">QUALIFICATION</th>
+              <th scope="col">LANGUAGE</th>
+              <th scope="col">PASSWORD</th>
+              <th scope="col">UPDATE</th>
+              <th scope="col">DELETE</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in obj %}
+            <tr>
+              <td>{{i.student_id}}</td> 
+              <td>{{i.first_name}}</td>
+              <td>{{i.middle_name}}</td>
+              <td>{{i.last_name}}</td>
+              <td>{{i.mother_name}}</td>
+              <td>{{i.date_of_birth}}</td>
+              <td>{{i.place_of_birth}}</td>
+              <td>{{i.age}}</td>
+              <td>{{i.gender}}</td>
+              <td>{{i.phone_number}}</td>
+              <td>{{i.address}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.Qualification}}</td>
+              <td>{{i.language}}</td>
+              <td>{{i.password}}</td>
+              <td><button class="btn btn-warning"><a href="{% url 'update_url' i.student_id %}">UPDATE</a></button></td>
+              <td><button class="btn btn-danger"><a href="{% url 'delete_url' i.student_id %}">DELETE</a></button></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+
+<center>
+  <div> 
+    {% if obj.has_previous %}
+      <a href="{% url 'showresume_url' obj.previous_page_number %}"><button class="btn btn-success">PREVIOUS</button></a>
+    {% endif %}
+    
+    <span lass='mx-4'>
+        page{{obj.number}} of {{obj.paginator.num_pages}}
+    </span>
+
+    {% if obj.has_next %}
+      <a href="{% url 'showresume_url' obj.next_page_number %}"><button class="btn btn-warning">NEXT</button></a>
+    {% endif %}
+  </div>
+</center>  
+
+{% endblock %}
