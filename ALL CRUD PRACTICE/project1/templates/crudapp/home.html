@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <title>SHOW HOME</title>
+{% endblock %}
+
+{% block content %}
+<body>
+<h1 style="color:white;">GADGETS.COM</h1>
+<hr>
+
+<h2 style="color:white;"><b>LAPTOP</b></h2>
+<p style="color:white;"> You are using Django Crud Project On Gadgets Website.</p>
+
+<h6 style="color:white;"><i>A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC)
+    with a screen and alphanumeric keyboard. Laptops typically have a clam shell form factor with the screen mounted on
+    the inside of the upper lid and the keyboard on the inside of the lower lid, although 2-in-1 PCs with a detachable
+    keyboard are often marketed as laptops or as having a laptop mode. Laptops are folded shut for transportation,
+    and thus are suitable for mobile use.[1] Its name comes from lap, as it was deemed practical to be placed on a person's
+    lap when being used. Today, laptops are used in a variety of settings, such as at work, in education, for playing games,
+    web browsing, for personal multimedia, and for general home computer use.</i></h6>
+    <a href="https://en.wikipedia.org/wiki/Laptop">click here for more info</a>
+
+<div class ="row">
+<div class ="column">
+<div class ="content">
+    <img src="{% static 'image/work.jpg' %}" class="img-fluid" alt="Responsive image" width="450" height="1000">
+    <br><br>
+    <a href="https://www.flipkart.com/q/best-laptops-under-rs-40000">click here for laptops</a>
+
+
+<h2 style="color:white;"><b>SMARTPHONE</b></h2>
+    <h6 style="color:white;"><i>A smartphone is a portable device that combines mobile telephone and computing functions
+        into one unit. They are distinguished from feature phones by their stronger hardware capabilities and extensive
+        mobile operating systems, which facilitate wider software, internet (including web browsing over mobile broadband),
+        and multimedia functionality (including music, video, cameras, and gaming), alongside core phone functions such
+        as voice calls and text messaging. Smartphones typically contain a number of metal–oxide–semiconductor (MOS)
+        integrated circuit (IC) chips, include various sensors that can be leveraged by pre-included and third-party
+        software (such as a magnetometer, proximity sensors, barometer, gyroscope, accelerometer and more), and support
+        wireless communications protocols (such as Bluetooth, Wi-Fi, or satellite navigation).</i></h6>
+        <a href="https://en.wikipedia.org/wiki/Smartphone">click here for more info</a>
+</div>
+
+<div>
+    <img src="{% static 'image/iphone.jpg' %}" class="img-fluid" alt="Responsive image" width="450" height="1000">
+</div>
+    <a href="https://www.flipkart.com/mobiles/~mobile-phones-under-rs20000/pr?sid=tyy%2C4io&page=2">click here for smartphones</a>
+<hr>
+    <footer>
+        <p style="color:white;">made BY: Amit Bende<br>
+        <a href="https://www.google.co.in/">www.google.com</a></p>
+    </footer>
+
+
+</body>
+{% endblock  %}

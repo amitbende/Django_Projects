@@ -1,0 +1,63 @@
+from django.db import models
+from django.models.phone
+
+# Create your models here.
+class Customer(models.Model):
+    customer_id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    phone_number = 
+    product = models.CharField(max_length=50)
+
+from multiprocessing import context
+from re import template
+from django.shortcuts import render, redirect
+from .models import Laptop
+from .forms import LaptopForm
+from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+@login_required(login_url='login_url')
+def Laptop_View(reqeust):
+    form = LaptopForm()
+    template_name = 'crudapp/laptopform.html'
+    context = {'form': form}
+    if reqeust.method == 'POST':
+        form = LaptopForm(reqeust.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('showlaptop_url')
+    return render(reqeust, template_name, context)
+
+@login_required(login_url='login_url')
+def ShowLaptop_View(request):
+    data = Laptop.objects.all()
+    template_name = 'crudapp/showlaptop.html'
+    context = {'obj': data}
+    return render(request, template_name, context)
+
+def Update_view(request, id):
+    data = Laptop.objects.get(laptop_id = id)
+    form = LaptopForm(instance=data)
+    template_name = 'crudapp/laptopform.html'
+    context = {'form': form}
+    if request.method == 'POST':
+        form = LaptopForm(request.POST, instance=data)
+        form.is_valid()
+        form.save()
+        return redirect('showlaptop_url')
+    return render(request, template_name, context)
+
+def Delete_View(request, id):
+    data = Laptop.objects.get(laptop_id = id)
+    template_name = 'crudapp/confirmation.html'
+    context = {'obj':data}
+    if request.method == 'POST':
+        data.delete()
+        return redirect('showlaptop_url')
+    return render(request, template_name, context)
+
+
+
+
+
+
